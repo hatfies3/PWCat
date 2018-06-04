@@ -7,8 +7,133 @@
 
   <meta name="viewport" content="width=device-width, initial-scale=1">
   <link rel="icon" type="image/x-icon" href="favicon.ico">
+
+  <style>
+
+    /* 
+    html {
+      height: 100%;
+    }
+    
+    body {
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+      height: 100%;
+    }
+    */
+
+    /* spinner from https://codepen.io/CodeBoomer/pen/BzOPPz */
+
+    .spinner-container {
+      display: flex;
+      flex-direction: row;
+    }
+    
+    .spinner {
+      flex-grow: 0;
+      flex-shrink: 0;
+      width: 80px;
+      height: 80px;
+      margin-left: -36px;
+      background: none;
+      border-radius: 50%;
+      border: 6px solid currentColor;
+      box-sizing: border-box;
+      -webkit-animation-name: spin;
+              animation-name: spin;
+      -webkit-animation-duration: 1.2s;
+              animation-duration: 1.2s;
+      -webkit-animation-fill-mode: backwards;
+              animation-fill-mode: backwards;
+      -webkit-animation-iteration-count: infinite;
+              animation-iteration-count: infinite;
+      -webkit-animation-timing-function: linear;
+              animation-timing-function: linear;
+    }
+    .spinner:first-child {
+      margin-left: 0;
+      color: rgba(0, 41, 140, 0.2);
+      border-top-color: #00298C;
+    }
+    .spinner:nth-child(2) {
+      color: rgba(255, 239, 8, 0.2);
+      border-top-color: #FFEF08;
+    }
+    .spinner:nth-child(3) {
+      color: rgba(0, 0, 0, 0.2);
+      border-top-color: #000000;
+    }
+    .spinner:nth-child(4) {
+      color: rgba(8, 123, 57, 0.2);
+      border-top-color: #087B39;
+    }
+    .spinner:nth-child(5) {
+      color: rgba(222, 24, 24, 0.2);
+      border-top-color: #DE1818;
+    }
+    .spinner:nth-child(2n) {
+      margin-top: 40px;
+    }
+    
+    @-webkit-keyframes spin {
+      0% {
+        -webkit-transform: rotate(0);
+                transform: rotate(0);
+      }
+      100% {
+        -webkit-transform: rotate(360deg);
+                transform: rotate(360deg);
+      }
+    }
+    
+    @keyframes spin {
+      0% {
+        -webkit-transform: rotate(0);
+                transform: rotate(0);
+      }
+      100% {
+        -webkit-transform: rotate(360deg);
+                transform: rotate(360deg);
+      }
+    }
+  
+  </style>
 </head>
 <body>
-  <app-root></app-root>
+  <app-root>
+      <nav style="background-color: #673ab7; height: 56px; width: 100%">
+      </nav>
+      <div class="spinner-container">
+        <div class="spinner"></div>
+        <div class="spinner"></div>
+        <div class="spinner"></div>
+        <div class="spinner"></div>
+        <div class="spinner"></div>
+      </div>
+  </app-root>
+  <script>
+
+    $( document ).ready(function() {
+    
+      // Loop through each nav item
+      $('.spinner-container').children('.spinner').each(function(index){
+          
+          // Turn the index value into a reasonable animation delay
+          var delay = index*0.3;
+          
+          // Apply the animation delay
+          // $(this).css("animation-delay", delay + "s")	
+
+      });
+
+    });
+</script>
+<noscript>
+    <h3 style="color: #673ab7; font-family: Helvetica; margin: 2rem;">
+        Sorry, but app is not available without javascript
+    </h3>
+  </noscript>
 </body>
 </html>
